@@ -8,7 +8,6 @@ require(
         "esri/layers/ElevationLayer",
         "esri/views/SceneView"
     ],
-    
     function(
        Map, Graphic, GraphicsLayer, ElevationLayer, SceneView
     ) {
