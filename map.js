@@ -83,7 +83,17 @@ require(
                             symbol: markerSymbol,
                             popupTemplate: {
                                 title: key + ": <br>" + value.city + ", " + value.state,
-                                content: "This location is " + value.name + ". <br> Find out more by visiting: " + value.website
+                                outFields: ["*"],
+                                content: [{ 
+                                    type: "fields",
+                                    fieldInfos: [{
+                                        fieldName: value.name,
+                                        label: "Known as:"
+                                    },{
+                                        fieldName: value.website,
+                                        label: "Website:",
+                                    }]
+                                }]
                             }
                           });
                           graphicsLayer.add(pointGraphic);
