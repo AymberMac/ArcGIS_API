@@ -29,8 +29,8 @@ require(
                     map: map,
                     camera: {
                         position: {
-                            x: -105.503,
-                            y: 44.270,
+                            x: -118.500,
+                            y: 41.700,
                             z: 20000000,
                             spatialReference: {
                                 wkid: 4326
@@ -65,16 +65,16 @@ require(
                             type: "point", 
                             x: value.coord[0],
                             y: value.coord[1],
-                            z: 10000
+                            z: 7000
                           };
                   
                           const markerSymbol = {
                             type: "simple-marker", 
-                            color: [0, 0, 255],
+                            color: [128, 0, 125],
                             outline: {
                               // autocasts as new SimpleLineSymbol()
-                              color: [255, 255, 255],
-                              width: 2
+                              color: [128, 0, 128],
+                              width: 4
                             }
                           };
                       
@@ -82,7 +82,8 @@ require(
                             geometry: point,
                             symbol: markerSymbol,
                             popupTemplate: {
-                                title: key + ": " + value.city + ", " + value.state
+                                title: key + ": <br>" + value.city + ", " + value.state,
+                                content: "This location is " + value.name + ". <br> Find out more by visiting: " + value.website
                             }
                           });
                           graphicsLayer.add(pointGraphic);
