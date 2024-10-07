@@ -53,7 +53,7 @@ require(
                           color: [5, 8, 28, 1]
                         },
                         // disable stars
-                        starsEnabled: false,
+                        starsEnabled: true,
                         //disable atmosphere
                         atmosphereEnabled: false
                       }
