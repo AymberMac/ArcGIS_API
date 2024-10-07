@@ -60,7 +60,6 @@ require(
                 })
                 const initMap = function(){
                
-                   
                     // var graphicsLayer = new GraphicsLayer()
                     const graphicsLayer = new GraphicsLayer();
                     map.add(graphicsLayer);
@@ -102,6 +101,7 @@ require(
                                 }]
                             }
                           });
+                          
                           graphicsLayer.add(pointGraphic);
                     
                     }
