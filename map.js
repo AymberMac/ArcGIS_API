@@ -4,14 +4,13 @@ require(
     [
         "esri/Map",
         "esri/Graphic",
-        "esri/layers/FeatureLayer",
         "esri/layers/GraphicsLayer",
         "esri/layers/ElevationLayer",
         "esri/widgets/Search",
         "esri/views/SceneView"
     ],
     function(
-       Map, Graphic, FeatureLayer, GraphicsLayer, ElevationLayer, Search, SceneView
+       Map, Graphic, GraphicsLayer, ElevationLayer, Search, SceneView
     ) {
         $(document).ready(function() {
             Main = (function() {
@@ -19,7 +18,7 @@ require(
                     url: "http://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer"
                 });
                 var map = new Map({
-                    basemap: "hybrid",
+                    basemap: "gray-vector",
                     ground: {
                         layers: [layer]
                     },
@@ -94,7 +93,7 @@ require(
                         starsEnabled: true,
                         //disable atmosphere
                         atmosphereEnabled: false
-                    }
+                    },
                 })
                 const initMap = function(){
 
@@ -130,7 +129,7 @@ require(
                               width: 2
                             }
                           };
-                      
+
                           const pointGraphic = new Graphic({
                             geometry: point,
                             symbol: markerSymbol,
@@ -149,7 +148,7 @@ require(
                                 }]
                             }
                           });
-                          
+
                           graphicsLayer.add(pointGraphic);
                     
                     }
