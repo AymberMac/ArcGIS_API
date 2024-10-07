@@ -1,8 +1,8 @@
 var myStuff = {
-    "My Undergraduate School": {city: "Fort Collins", state: "Colorado", "coord": [-105.0848, 40.5729], name: "Colorado State University", website: "https://www.colostate.edu/"},
-    "My Graduate School": {city: "Laramie", state: "Wyoming", "coord": [-105.5690, 41.3147], name: "University of Wyoming", website: "https://www.uwyo.edu/index.html"},
-    "My Current Residence": {city: "Kalispell", state: "Montana", "coord": [-114.3168, 48.1920], name: "Gateway to Glacier Park", website: "https://discoverkalispell.com/"},
-    "Favorite Place I've Lived": {city: "Anchorage", state: "Alaska", "coord": [-149.8113, 61.2536], name: "City of Lights and Flowers", website:"https://www.anchorage.net/"},
-    "Least Favorite Place I've Lived": {city: "Williamsport", state: "Pennsylvania", "coord": [-77.0011, 41.2412], name: "Birthplace of Little League Baseball", website:"https://visitlycomingcounty.com/"},
-    "My Favorite Vacation": {city: "Hanalei Bay", state: "Hawai'i", "coord": [-159.5068, 22.2091], name: "Garden Isle", website: "https://www.gohawaii.com/islands/kauai/regions/north-shore/hanalei-town"}
+    "My Undergraduate School": {city: "Fort Collins", state: "Colorado", "coord": [-105.0848, 40.5729], name: "Colorado State University", image: "https://www.swansea.ac.uk/goglobal/outbound/partner-universities/usa/colorado-state-university-csu-at-fort-collins/Colorado-State-University-Welcome-cropped.jpg"},
+    "My Graduate School": {city: "Laramie", state: "Wyoming", "coord": [-105.5690, 41.3147], name: "University of Wyoming", image: "https://www.uwyo.edu/socialwork/_files/images/msw-photos/sign.logo.jpg"},
+    "My Current Residence": {city: "Kalispell", state: "Montana", "coord": [-114.3168, 48.1920], name: "Gateway to Glacier Park", image: "https://orangecoast.com/.image/t_share/MTk3NjY1NTE5MTk3MTAzOTIy/kalispell-sponsored-article.png"},
+    "Favorite Place I've Ever Lived": {city: "Anchorage", state: "Alaska", "coord": [-149.8113, 61.2536], name: "City of Lights and Flowers", image:"https://www.worldatlas.com/upload/5e/a4/76/shutterstock-1142557964.jpg"},
+    "Least Favorite Place I've Ever Lived": {city: "Williamsport", state: "Pennsylvania", "coord": [-77.0011, 41.2412], name: "Birthplace of Little League Baseball", image:"https://sportsheritage.org/app/uploads/2015/09/leaf-peeping.jpg"},
+    "My Favorite Vacation": {city: "Hanalei Bay", state: "Hawai'i", "coord": [-159.5068, 22.2091], name: "Garden Isle", image: "https://www.kauai.com/images/hanalei-pier-2-scaled.jpg"}
 }

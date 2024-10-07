@@ -25,13 +25,13 @@ require(
     
                 var view = new SceneView({
                     container: "map",
-                    viewingMode: "global",
+                    viewingMode: "global", //Alter the behavior of the sceneView
                     map: map,
                     camera: {
                         position: {
-                            x: -118.500,
-                            y: 41.700,
-                            z: 20000000,
+                            x: -105.503,
+                            y: 44.270,
+                            z: 20000000, 
                             spatialReference: {
                                 wkid: 4326
     
@@ -43,6 +43,7 @@ require(
                     popup: {
                         dockEnabled: true,
                         dockOptions: {
+                            position: "bottom-right",
                             breakpoint: false
                         }
                     },
@@ -65,16 +66,17 @@ require(
                             type: "point", 
                             x: value.coord[0],
                             y: value.coord[1],
-                            z: 7000
+                            z: 10000
                           };
                   
                           const markerSymbol = {
-                            type: "simple-marker", 
-                            color: [128, 0, 125],
+                            type: "simple-marker",
+                            style: "triangle", //Alter the symbology of the point symbols
+                            color: [125, 0, 125],
+                            size: "15px",
                             outline: {
-                              // autocasts as new SimpleLineSymbol()
-                              color: [128, 0, 128],
-                              width: 4
+                              color: [0, 0, 0],
+                              width: 2
                             }
                           };
                       
@@ -83,16 +85,16 @@ require(
                             symbol: markerSymbol,
                             popupTemplate: {
                                 title: key + ": <br>" + value.city + ", " + value.state,
-                                outFields: ["*"],
-                                content: [{ 
-                                    type: "fields",
-                                    fieldInfos: [{
-                                        fieldName: value.name,
-                                        label: "Known as:"
-                                    },{
-                                        fieldName: value.website,
-                                        label: "Website:",
-                                    }]
+                                outFields: ["*"], 
+                                content: [{ //Alter the formatting of the popup
+                                    type: "media",
+                                    mediaInfos: {
+                                        title: value.name,
+                                        type: "image", 
+                                        value: {
+                                            sourceURL: value.image
+                                        }
+                                    }
                                 }]
                             }
                           });
@@ -111,6 +113,3 @@ require(
         })
 
     });
-
-
-    
