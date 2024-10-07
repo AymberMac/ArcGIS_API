@@ -4,12 +4,13 @@ require(
     [
         "esri/Map",
         "esri/Graphic",
+        "esri/layers/FeatureLayer",
         "esri/layers/GraphicsLayer",
         "esri/layers/ElevationLayer",
         "esri/views/SceneView"
     ],
     function(
-       Map, Graphic, GraphicsLayer, ElevationLayer, SceneView
+       Map, Graphic, FeatureLayer, GraphicsLayer, ElevationLayer, SceneView
     ) {
         $(document).ready(function() {
             Main = (function() {
@@ -22,6 +23,42 @@ require(
                         layers: [layer]
                     },
                 });
+
+                const clusterConfig = {  //Create a clustering effect
+                    type: "cluster",
+                    clusterRadius: "100px",
+                    // {cluster_count} is an aggregate field containing
+                    // the number of features comprised by the cluster
+                    popupTemplate: {
+                      title: "Cluster summary",
+                      content: "This cluster represents {cluster_count} locations.",
+                      fieldInfos: [{
+                        fieldName: "cluster_count",
+                        format: {
+                          places: 0,
+                          digitSeparator: true
+                        }
+                      }]
+                    },
+                    clusterMinSize: "2px",
+                    clusterMaxSize: "20px",
+                    labelingInfo: [{
+                      deconflictionStrategy: "none",
+                      labelExpressionInfo: {
+                        expression: "Text($feature.cluster_count, '#,###')"
+                      },
+                      symbol: {
+                        type: "text",
+                        color: "#004a5d",
+                        font: {
+                          weight: "bold",
+                          family: "Noto Sans",
+                          size: "12px"
+                        }
+                      },
+                      labelPlacement: "center-center",
+                    }]
+                  };
     
                 var view = new SceneView({
                     container: "map",
@@ -56,7 +93,7 @@ require(
                         starsEnabled: true,
                         //disable atmosphere
                         atmosphereEnabled: false
-                      }
+                    }
                 })
                 const initMap = function(){
                
