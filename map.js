@@ -25,7 +25,7 @@ require(
     
                 var view = new SceneView({
                     container: "map",
-                    viewingMode: "global", //Alter the behavior of the sceneView
+                    viewingMode: "global", 
                     map: map,
                     camera: {
                         position: {
@@ -47,12 +47,16 @@ require(
                             breakpoint: false
                         }
                     },
-                    // enable shadows to be cast from the features
-                    environment: {
-                        lighting: {
-                            directShadowsEnabled: false
-                        }
-                    }
+                    environment: { //Alter the behavior of the sceneView
+                        background: {
+                          type: "color", // autocasts as new ColorBackground()
+                          color: [5, 8, 28, 1]
+                        },
+                        // disable stars
+                        starsEnabled: false,
+                        //disable atmosphere
+                        atmosphereEnabled: false
+                      }
                 })
                 const initMap = function(){
                
