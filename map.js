@@ -7,10 +7,11 @@ require(
         "esri/layers/FeatureLayer",
         "esri/layers/GraphicsLayer",
         "esri/layers/ElevationLayer",
+        "esri/widgets/Search",
         "esri/views/SceneView"
     ],
     function(
-       Map, Graphic, FeatureLayer, GraphicsLayer, ElevationLayer, SceneView
+       Map, Graphic, FeatureLayer, GraphicsLayer, ElevationLayer, Search, SceneView
     ) {
         $(document).ready(function() {
             Main = (function() {
@@ -23,7 +24,7 @@ require(
                         layers: [layer]
                     },
                 });
-
+                
                 const clusterConfig = {  //Create a clustering effect
                     type: "cluster",
                     clusterRadius: "100px",
@@ -96,6 +97,16 @@ require(
                     }
                 })
                 const initMap = function(){
+
+                    const searchWidget = new Search({ //Implement a search bar
+                        view: view
+                      });
+                      // Adds the search widget below other elements in
+                      // the top left corner of the view
+                      view.ui.add(searchWidget, {
+                        position: "bottom-left",
+                        index: 2
+                      });
                
                     // var graphicsLayer = new GraphicsLayer()
                     const graphicsLayer = new GraphicsLayer();
