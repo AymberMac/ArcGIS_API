@@ -93,7 +93,7 @@ require(
                         starsEnabled: true,
                         //disable atmosphere
                         atmosphereEnabled: false
-                    },
+                    }
                 })
                 const initMap = function(){
 
@@ -150,8 +150,9 @@ require(
                           });
 
                           graphicsLayer.add(pointGraphic);
-                    
+
                     }
+                    
                     
                     
                 }
