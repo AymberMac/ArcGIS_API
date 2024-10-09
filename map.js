@@ -121,7 +121,7 @@ require(
                           graphicsLayer.add(pointGraphic);
                     }
                     
-                map.on("click", function (event) {
+                map.on("click", function (event) { //Add a function to zoom to the point you click on
                   map.centerAndZoom(event.mapPoint, 2);
                 });
                     
