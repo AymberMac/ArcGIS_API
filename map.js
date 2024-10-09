@@ -23,42 +23,6 @@ require(
                         layers: [layer]
                     },
                 });
-                
-                const clusterConfig = {  //Create a clustering effect
-                    type: "cluster",
-                    clusterRadius: "100px",
-                    // {cluster_count} is an aggregate field containing
-                    // the number of features comprised by the cluster
-                    popupTemplate: {
-                      title: "Cluster summary",
-                      content: "This cluster represents {cluster_count} locations.",
-                      fieldInfos: [{
-                        fieldName: "cluster_count",
-                        format: {
-                          places: 0,
-                          digitSeparator: true
-                        }
-                      }]
-                    },
-                    clusterMinSize: "2px",
-                    clusterMaxSize: "20px",
-                    labelingInfo: [{
-                      deconflictionStrategy: "none",
-                      labelExpressionInfo: {
-                        expression: "Text($feature.cluster_count, '#,###')"
-                      },
-                      symbol: {
-                        type: "text",
-                        color: "#004a5d",
-                        font: {
-                          weight: "bold",
-                          family: "Noto Sans",
-                          size: "12px"
-                        }
-                      },
-                      labelPlacement: "center-center",
-                    }]
-                  };
     
                 var view = new SceneView({
                     container: "map",
@@ -68,10 +32,9 @@ require(
                         position: {
                             x: -105.503,
                             y: 44.270,
-                            z: 20000000, 
+                            z: 15000000, 
                             spatialReference: {
                                 wkid: 4326
-    
                             }
                         },
                         heading: 0,
@@ -94,6 +57,7 @@ require(
                         //disable atmosphere
                         atmosphereEnabled: false
                     }
+                    
                 })
                 const initMap = function(){
 
@@ -106,7 +70,7 @@ require(
                         position: "bottom-left",
                         index: 2
                       });
-               
+                      
                     // var graphicsLayer = new GraphicsLayer()
                     const graphicsLayer = new GraphicsLayer();
                     map.add(graphicsLayer);
@@ -127,7 +91,14 @@ require(
                             outline: {
                               color: [0, 0, 0],
                               width: 2
+                            },
+                            featureReduction: { //Create a clustering effect 
+                              type: "cluster",
+                              clusterMinSize: "5px",
+                              clusterMaxSize: "50px",
+                              clusterRadius: "60px"
                             }
+                            
                           };
 
                           const pointGraphic = new Graphic({
@@ -147,6 +118,7 @@ require(
                                     }
                                 }]
                             }
+
                           });
 
                           graphicsLayer.add(pointGraphic);
