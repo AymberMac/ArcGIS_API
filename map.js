@@ -47,9 +47,9 @@ require(
                             breakpoint: false
                         }
                     },
-                    environment: { //Alter the behavior of the sceneView
+                    environment: { //Alter the behavior of the sceneView with new backgound color and stars, no atmosphere
                         background: {
-                          type: "color", // autocasts as new ColorBackground()
+                          type: "color",
                           color: [5, 8, 28, 1]
                         },
                         // disable stars
@@ -61,11 +61,9 @@ require(
                 })
                 const initMap = function(){
 
-                    const searchWidget = new Search({ //Implement a search bar
+                    const searchWidget = new Search({ //Implement a search bar in the bottom left corner of the view
                         view: view
                       });
-                      // Adds the search widget below other elements in
-                      // the top left corner of the view
                       view.ui.add(searchWidget, {
                         position: "bottom-left",
                         index: 2
@@ -120,12 +118,12 @@ require(
                             }
 
                           });
-
                           graphicsLayer.add(pointGraphic);
-
                     }
                     
-                    
+                map.on("click", function (event) {
+                  map.centerAndZoom(event.mapPoint, 2);
+                });
                     
                 }
                 initMap()
